@@ -4,7 +4,6 @@ const REDIS_ENDPOINT=process.env.REDIS_ENDPOINT || 'redis';
 const REDIS_PORT=process.env.REDIS_PORT || 6379;
 const REDIS_PASSWORD=process.env.REDIS_PASSWORD || "";
 const channel = process.env.CHANNEL || "messages";
-const cache = require('./Redis_handlers')
 const logger = require('./logger');
 require('dotenv').config();
 
@@ -25,18 +24,13 @@ try {
 subscriber.on("message", (incomingChannel,message) => {
     if (incomingChannel === channel) {
         try {
-            let parsedMessage = JSON.parse(message).message
-            // logger.info();
-            // console.log({
-            //     sku: parsedMessage.sku,
-            //     name: parsedMessage.name,
-            //     quantity: parsedMessage.quantity,
-            //     website: parsedMessage.website
-            // })
-            console.log('\x1b[0m', "Website: ", '\x1b[34m', `${parsedMessage.website}`, '\x1b[0m', "SKU: ", "\x1b[32m",`${parsedMessage.sku}`, '\x1b[0m', "Name: ", "\x1b[31m", `${parsedMessage.name}`, '\x1b[0m', "Quantity: ", "\x1b[33m", `${parsedMessage.quantity}`);
+            logger.info({
+                message: JSON.parse(message),
+                channel: incomingChannel
+            });
         } catch (e) {
             logger.error({
-                message: e
+                message: "Error occured recieving message"
             })
         }    
     }
@@ -48,9 +42,3 @@ subscriber.on("error", function(error) {
     })
     process.exit(1);
 });
-
-
-
-
-subscriber.subscribe(channel);
-
