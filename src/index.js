@@ -26,7 +26,7 @@ subscriber.on("message", (incomingChannel,message) => {
     if (incomingChannel === channel) {
         try {
             logger.info({
-                message: message,
+                message: JSON.parse(message),
                 channel: incomingChannel
             });
         } catch (e) {
