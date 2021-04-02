@@ -1,0 +1,26 @@
+{
+  "name": "abyss-interface",
+  "version": "1.0.0",
+  "description": "Interface for products in the Abyss",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pub": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/in-the-abyss/Abyss-Interface.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/in-the-abyss/Abyss-Interface/issues"
+  },
+  "homepage": "https://github.com/in-the-abyss/Abyss-Interface#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "redis": "^3.1.0",
+    "winston": "^3.3.3"
+  }
+}
