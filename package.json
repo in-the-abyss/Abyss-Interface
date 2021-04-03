@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "pub": "node test.js"
+    "pub": "node test.js",
+    "stats": "node src/statsInterface"
   },
   "repository": {
     "type": "git",
