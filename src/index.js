@@ -26,7 +26,7 @@ subscriber.on("message", (incomingChannel,message) => {
     if (incomingChannel === channel) {
         try {
             let parsedMessage = JSON.parse(message).message
-            console.log('\x1b[0m', "Website: ", '\x1b[34m', `${parsedMessage.website}`, '\x1b[0m', "|  SKU:", "\x1b[32m",`${parsedMessage.sku}`, '\x1b[0m', "|  Quantity: ", "\x1b[33m", `${parsedMessage.quantity}`, '\x1b[0m', "|  Name:", "\x1b[31m", `${parsedMessage.name}`, '\x1b[0m');
+            console.log('\x1b[0m', "Website: ", '\x1b[35m', `${parsedMessage.website}`, '\x1b[0m', "|  SKU:", "\x1b[32m",`${parsedMessage.sku}`, '\x1b[0m', "|  Quantity: ", "\x1b[33m", `${parsedMessage.quantity}`, '\x1b[0m', "|  Name:", "\x1b[36m", `${parsedMessage.name}`, '\x1b[0m');
         } catch (e) {
             logger.error({
                 message: e
